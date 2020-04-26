@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podwithnodeselector1
+spec:
+  nodeSelector:
+    typeofharddisk: ssd
+  containers:
+  - name: nodeselectorcontainer
+    image: aamirpinger/flag:latest
+    ports:
+    - containerPort: 80

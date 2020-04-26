@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podinnamespace
+  namespace: fsd-ns
+spec:
+  containers:
+  - name: container-ns
+    image: aamirpinger/helloworld
+    ports:
+    - containerPort: 80

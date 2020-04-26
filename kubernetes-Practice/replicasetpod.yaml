@@ -1,0 +1,20 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: myrs
+  namespace: fsd-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rspodexample
+  template:
+    metadata:
+      labels:
+        app: rspodexample
+    spec:
+      containers:
+      - name: rscontainer
+        image: aamirpinger/helloworld:latest
+        ports:
+        - containerPort: 80

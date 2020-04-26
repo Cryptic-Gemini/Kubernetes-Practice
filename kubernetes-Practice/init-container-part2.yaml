@@ -1,0 +1,28 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: init-container
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: myvolume
+      mountPath: /usr/share/nginx/html
+  initContainers:
+  - name: helper-container
+    image: alpine/git
+    command:
+    - git
+    - clone
+    - https://github.com/Cryptic-Gemini/portfolio-sample.git
+    - /git-content/
+    volumeMounts:
+    - name: myvolume
+      mountPath: "/git-content/"
+  volumes:
+  - name: myvolume
+    emptyDir: {}
+

@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: podwithannotation
+  annotations:
+    createdBy: "Ghazal Khan"
+    email: gzlkhan409@gmail.com
+spec:
+  containers:
+  - name: container-annotation
+    image: aamirpinger/flag:latest
+    ports:
+    - containerPort: 80

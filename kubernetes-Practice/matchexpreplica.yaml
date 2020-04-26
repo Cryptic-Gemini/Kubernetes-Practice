@@ -1,0 +1,23 @@
+kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  name: myexprs
+  namespace: fsd-ns
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+    - key: app
+      operator: In
+      values:
+      - rspodexample
+  template:
+    metadata:
+      labels:
+        app: rspodexample
+    spec:
+      containers:
+      - name: rscontainer
+        image: aamirpinger/helloworld:latest
+        ports:
+        - containerPort: 80
